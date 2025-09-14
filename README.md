@@ -150,12 +150,6 @@ Axios
 
 Express.js
 
-pgsql
-Copy code
 
----
 
-If you want, I can **also create a version with setup commands for MongoDB Atlas, JWT login, and full backend code** integrated with this README so it’s ready to run.
-
-Do you want me to do that next?
 ```
