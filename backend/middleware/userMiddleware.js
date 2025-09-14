@@ -1,16 +1,17 @@
 import jwt from "jsonwebtoken";
 
 export const authMiddleware = async (req, res, next) => {
-    const Token = req.headers.authorization?.split(" ")[1];
+    const token = req.headers.authorization?.split(" ")[1];
 
-    if (!Token) {
-        res.status(401).json({ massage: "No Token , not allowed!" });
+    if (!token) {
+        return res.status(401).json({ message: "No token, not allowed!" }); // ✅ return
     }
+
     try {
-        const decode = jwt.verify(Token, "TodoAPP");
-        req.userId = decode.id;
-        next();
+        const decoded = jwt.verify(token, "TodoAPP"); // use process.env.JWT_SECRET in real apps
+        req.userId = decoded.id;
+        return next(); // ✅ only call next if everything is fine
     } catch (error) {
-        res.status(401).json({ message: "Invalid token!" });
+        return res.status(401).json({ message: "Invalid token!" }); // ✅ return
     }
-}
+};

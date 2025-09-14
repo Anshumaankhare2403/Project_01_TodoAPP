@@ -21,8 +21,9 @@ const userSchema = new mongoose.Schema(
         },
         phone: {
             type: String,
-            match: [/^\d{10}$/, "Invalid phone number"], // example: 10 digits only
+            required: false, // optional if you want
         },
+
         role: {
             type: String,
             enum: ["user", "admin"], // restrict role values

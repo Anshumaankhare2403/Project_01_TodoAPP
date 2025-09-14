@@ -18,7 +18,7 @@ dbConnection(url)
 
 
 app.use("/api/users", routers);
-app.use("/todoList", Todorouter);
+app.use("/todolist", Todorouter);
 
 
 
